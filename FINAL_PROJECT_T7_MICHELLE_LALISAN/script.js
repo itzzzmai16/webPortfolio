@@ -2,26 +2,25 @@ const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
 const darkModeClass = 'dark-mode';
 const darkModeStorageKey = 'darkModeEnabled';
-
-// Function to enable dark mode
+//to enable
 function enableDarkMode() {
     body.classList.add(darkModeClass);
     localStorage.setItem(darkModeStorageKey, 'true');
 }
 
-// Function to disable dark mode
+//  to disable
 function disableDarkMode() {
     body.classList.remove(darkModeClass);
     localStorage.setItem(darkModeStorageKey, 'false');
 }
 
-// Check if dark mode was previously enabled
+// taga Check 
 if (localStorage.getItem(darkModeStorageKey) === 'true') {
     enableDarkMode();
     darkModeToggle.checked = true; // Update the toggle state
 }
 
-// Event listener for the toggle switch
+// Event listener para sa toggle switch
 darkModeToggle.addEventListener('change', () => {
     if (darkModeToggle.checked) {
         enableDarkMode();
@@ -29,22 +28,6 @@ darkModeToggle.addEventListener('change', () => {
         disableDarkMode();
     }
 });
-// show more ini
-function myFunction() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("myBtn");
-  
-    if (dots.style.display === "none") {
-      dots.style.display = "inline";
-      btnText.innerHTML = "Read more"; 
-      moreText.style.display = "none";
-    } else {
-      dots.style.display = "none";
-      btnText.innerHTML = "Read less"; 
-      moreText.style.display = "inline";
-    }
-  }
 
   const time = new Date().getHours(); //greeting
 let greeting;
@@ -57,7 +40,7 @@ if (time < 10) {
 }
 document.getElementById("demo").innerHTML = greeting;
 
-document.addEventListener('DOMContentLoaded', function() { //formvalidation
+document.addEventListener('DOMContentLoaded', function() { //form validation inj
     const form = document.getElementById('contactForm');
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
@@ -68,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() { //formvalidation
     const submissionMessage = document.getElementById('submissionMessage');
 
 form.addEventListener('submit', function(event) {
-event.preventDefault(); // Prevent the default form submission
+event.preventDefault(); 
 
     let isValid = true;
 
@@ -100,11 +83,10 @@ event.preventDefault(); // Prevent the default form submission
     }
 
     if (isValid) {
-            // If all validations pass, you can proceed with submitting the form data
-            // You can use Fetch API or XMLHttpRequest to send the data to a server-side script
+            
 const formData = new FormData(form);
 
-fetch('/submit-contact-form', { // Replace with your server-side endpoint
+fetch('/submit-contact-form', { 
 method: 'POST',
 body: formData
 })
@@ -113,7 +95,7 @@ body: formData
     if (data.success) {
             submissionMessage.textContent = 'Thank you for your message! We will get back to you shortly.';
             submissionMessage.className = 'success-message';
-            form.reset(); // Clear the form
+            form.reset(); // Clear ang form
     } else {
             submissionMessage.textContent = 'Oops! Something went wrong. Please try again later.';
             submissionMessage.className = 'error-submission';
@@ -125,7 +107,7 @@ body: formData
             submissionMessage.className = 'error-submission';
     });
     } else {
-            submissionMessage.textContent = ''; // Clear any previous submission messages
+            submissionMessage.textContent = ''; 
     }
     });
 
